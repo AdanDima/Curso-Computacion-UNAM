@@ -1,0 +1,157 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Define Article %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Using Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{geometry}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{empheq}
+\usepackage{mdframed}
+\usepackage{booktabs}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{psfrag}
+\usepackage{pgfplots}
+\usepackage{bm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Other Settings
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Page Setting %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\geometry{a4paper}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Define some useful colors %%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{ocre}{RGB}{243,102,25}
+\definecolor{mygray}{RGB}{243,243,244}
+\definecolor{deepGreen}{RGB}{26,111,0}
+\definecolor{shallowGreen}{RGB}{235,255,255}
+\definecolor{deepBlue}{RGB}{61,124,222}
+\definecolor{shallowBlue}{RGB}{235,249,255}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Define an orangebox command %%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\orangebox[1]{\fcolorbox{ocre}{mygray}{\hspace{1em}#1\hspace{1em}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% English Environments %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheoremstyle{mytheoremstyle}{3pt}{3pt}{\normalfont}{0cm}{\rmfamily\bfseries}{}{1em}{{\color{black}\thmname{#1}~\thmnumber{#2}}\thmnote{\,--\,#3}}
+\newtheoremstyle{myproblemstyle}{3pt}{3pt}{\normalfont}{0cm}{\rmfamily\bfseries}{}{1em}{{\color{black}\thmname{#1}~\thmnumber{#2}}\thmnote{\,--\,#3}}
+\theoremstyle{mytheoremstyle}
+\newmdtheoremenv[linewidth=1pt,backgroundcolor=shallowGreen,linecolor=deepGreen,leftmargin=0pt,innerleftmargin=20pt,innerrightmargin=20pt,]{theorem}{Theorem}[section]
+\theoremstyle{mytheoremstyle}
+\newmdtheoremenv[linewidth=1pt,backgroundcolor=shallowBlue,linecolor=deepBlue,leftmargin=0pt,innerleftmargin=20pt,innerrightmargin=20pt,]{definition}{Definition}[section]
+\theoremstyle{myproblemstyle}
+\newmdtheoremenv[linecolor=black,leftmargin=0pt,innerleftmargin=10pt,innerrightmargin=10pt,]{problem}{Problem}[section]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Plotting Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepgfplotslibrary{colorbrewer}
+\pgfplotsset{width=8cm,compat=1.9}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Title & Author %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Ejercicio 2 del Tercer Parcial de Calculo Diferencial e Integral 1}
+\author{Adan Diaz Martinez \thanks{Profesor Jorge Calderon Espinosa de los Monteron}
+\thanks{Emmanuel Ismael González Celio}
+\thanks{Alan Hernández Martínez}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document} 
+    \maketitle
+    \begin{titlepage}
+        \maketitle
+    \end{titlepage}
+\noindent{\color{red}\Large\textbf{Ejercicio 2.}} Resolver los siguientes ejercicios:
+
+\medskip
+\begin{itemize}
+    \item Sean $I \subseteq \mathbb{R}$ un intervalo, c $\epsilon$ I un punto y $f:I$  
+    $\backslash \{ c\} \to \mathbb{R} $ una función. 
+    Demuestre que si $(x_{n})_{n\epsilon \mathbb{N} }$ es una sucesión de puntos en I, todos distintos de c,
+    que converge a c y $\lim_{x\to c} f(x)= \textit{L}$, entonces 
+    $\lim_{n\to \infty } f(x_{n})= \textit{L}$.
+
+
+\medskip
+$\mathbf{P} \mathbf{D}$
+\medskip
+$\lim_{n\to \infty}  f(x_{n})= \textit{L}$.
+
+
+\medskip
+{\textcolor{blue}{Prueba}} 
+\medskip
+Como $\lim_{x\to c} f(x)= \textit{L}$, sabemos que:
+\begin{equation}
+\forall \epsilon \gneq 0 \medspace \medspace  \exists\delta \gneq 0 : 0\lneq \left\lvert x-c\right\rvert 
+\lneq \delta \rightarrow \left\lvert f(x)-\textit{L}\right\rvert \lneq \varepsilon 
+\end{equation}
+Por otra parte tenemos que $x_{n}\subseteq Domf$ es una sucesion de imagenes que converge a c, es decir:
+\begin{equation}
+ \lim_{n \to \infty}x_{n}= c \rightarrow \forall n\epsilon \mathbb{N}, \exists N\epsilon \mathbb{N} 
+ : n\geq N \rightarrow \left\lvert x_{n}-c\right\rvert \lneq \varepsilon_\bigstar 
+\end{equation}
+Ademas como $x_{n}\neq c \medspace \medspace \forall n\epsilon \mathbb{N} \rightarrow 0\lneq 
+\left\lvert x_{n}-c\right\rvert \lneq \varepsilon_\bigstar $, eso quiere decir que cumple 
+con la definicion de limite de función, renombrando $\varepsilon_\bigstar$ como $\delta$ se tiene que: 
+\begin{equation}
+ \forall n\epsilon\mathbb{N} \medspace  \medspace \exists N\epsilon \mathbb{N} : \medspace si
+ \medspace n\geq N \medspace entonces \medspace 0\lneq \left\lvert x_{n}-c\right\rvert \lneq 
+ \delta \rightarrow \left\lvert f(x_{n})-\textit{L}\right\rvert \lneq \epsilon  
+\end{equation}
+\begin{center} 
+$\therefore \lim_{n \to \infty } f(x_{n})= \textit{L}$
+    \end{center} 
+    \begin{flushright} 
+        $\blacksquare$
+    \end{flushright}
+        \item Con base en lo anterior demostrar que $\nexists \lim_{x \to 0} \cos(\frac{1}{x})$ 
+
+        \medskip
+        $\mathbf{P} \mathbf{D}$
+        \medskip
+        $\nexists \lim_{x \to 0} \cos(\frac{1}{x})$
+        
+        
+        \medskip
+        {\textcolor{blue}{Prueba}} 
+        \medskip
+Por la demostracion anterion anterior:
+\begin{equation}
+ \lim_{x \to 0}\cos(\frac{1}{x})=\textit{L} \medspace si \lim_{n \to \infty}x_{n}=0 \medspace\medspace
+x_{n}\neq 0 \medspace \forall n\epsilon \mathbb{N} \rightarrow \lim_{n\to \infty}
+    f(x_{n})=\textit{L}
+\end{equation}
+La prueba es por casos:
+\begin{itemize}
+    \item {\textcolor{deepGreen}{Caso 1:}} 
+\medskip
+Sea $(x_{n\diamondsuit})_{n\epsilon \mathbb{N}}=(\frac{1}{2n\pi})\rightarrow 
+\lim_{n \to \infty}(\frac{1}{2n\pi})=0$ eso quiere decir:
+\begin{equation}
+\lim_{n \to \infty}f(x_{n\diamondsuit})=\lim_{n \to \infty}\cos(\frac{1}{\frac{1}{2n\pi}})
+=\lim_{n \to \infty}\cos(2n\pi)=1
+   \end{equation}
+   \item {\textcolor{deepGreen}{Caso 2:}} 
+   \medskip
+Sea $(x_{n\clubsuit})_{n\epsilon \mathbb{N}}=(\frac{1}{(2n-1)\pi})\rightarrow 
+\lim_{n \to \infty}(\frac{1}{(2n-1)\pi})=0$ eso quiere decir:
+\begin{equation}
+\lim_{n \to \infty}f(x_{n\clubsuit })=\lim_{n \to \infty}\cos(\frac{1}{\frac{1}{(2n-1)\pi}})
+=\lim_{n \to \infty}\cos((2n-1)\pi)=-1
+   \end{equation}
+\end{itemize}
+Como los limites de la sucesion de imagenes son distintos:
+\begin{equation}
+    \rightarrow \nexists \lim_{x \to 0} \cos(\frac{1}{x})
+ \end{equation}
+ \begin{flushright} 
+    $\blacksquare$
+\end{flushright}
+    \end{itemize}
+\end{document}
